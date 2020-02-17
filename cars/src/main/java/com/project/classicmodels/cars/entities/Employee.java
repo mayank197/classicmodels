@@ -17,7 +17,7 @@ public class Employee implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int employeeNumber;
+	private Integer employeeNumber;
 
 	private String email;
 
@@ -50,11 +50,11 @@ public class Employee implements Serializable {
 	public Employee() {
 	}
 
-	public int getEmployeeNumber() {
+	public Integer getEmployeeNumber() {
 		return this.employeeNumber;
 	}
 
-	public void setEmployeeNumber(int employeeNumber) {
+	public void setEmployeeNumber(Integer employeeNumber) {
 		this.employeeNumber = employeeNumber;
 	}
 

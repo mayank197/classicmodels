@@ -13,16 +13,16 @@ public class PaymentPK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(insertable=false, updatable=false)
-	private int customerNumber;
+	private Integer customerNumber;
 
 	private String checkNumber;
 
 	public PaymentPK() {
 	}
-	public int getCustomerNumber() {
+	public Integer getCustomerNumber() {
 		return this.customerNumber;
 	}
-	public void setCustomerNumber(int customerNumber) {
+	public void setCustomerNumber(Integer customerNumber) {
 		this.customerNumber = customerNumber;
 	}
 	public String getCheckNumber() {
@@ -45,9 +45,10 @@ public class PaymentPK implements Serializable {
 			&& this.checkNumber.equals(castOther.checkNumber);
 	}
 
+	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int hash = 17;
+		final Integer prime = 31;
+		Integer hash = 17;
 		hash = hash * prime + this.customerNumber;
 		hash = hash * prime + this.checkNumber.hashCode();
 		

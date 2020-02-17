@@ -30,10 +30,10 @@ public class Product implements Serializable {
 
 	private String description;
 
-	private int id;
+	private Integer id;
 
 	@Lob
-	private byte[] image;
+	private Byte[] image;
 
 	private String model;
 
@@ -52,7 +52,7 @@ public class Product implements Serializable {
 
 	private String productVendor;
 
-	private int quantity;
+	private Integer quantity;
 
 	private short quantityInStock;
 
@@ -108,19 +108,19 @@ public class Product implements Serializable {
 		this.description = description;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public byte[] getImage() {
+	public Byte[] getImage() {
 		return this.image;
 	}
 
-	public void setImage(byte[] image) {
+	public void setImage(Byte[] image) {
 		this.image = image;
 	}
 
@@ -188,11 +188,11 @@ public class Product implements Serializable {
 		this.productVendor = productVendor;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return this.quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 

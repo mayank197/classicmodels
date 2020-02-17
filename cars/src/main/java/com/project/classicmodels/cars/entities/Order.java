@@ -37,7 +37,7 @@ public class Order implements Serializable {
 	private Timestamp endDate;
 
 	@Column(name="is_order_to_cash_enabled")
-	private byte isOrderToCashEnabled;
+	private Byte isOrderToCashEnabled;
 
 	@Column(name="order_code")
 	private String orderCode;
@@ -65,7 +65,7 @@ public class Order implements Serializable {
 	private Integer termInMonths;
 
 	//bi-directional many-to-one association to Orderdetail
-	@OneToMany(mappedBy="order")
+	@OneToMany(mappedBy="order", orphanRemoval = true)
 	private Set<Orderdetail> orderdetails;
 
 	//bi-directional many-to-one association to Customer
@@ -116,11 +116,11 @@ public class Order implements Serializable {
 		this.endDate = endDate;
 	}
 
-	public byte getIsOrderToCashEnabled() {
+	public Byte getIsOrderToCashEnabled() {
 		return this.isOrderToCashEnabled;
 	}
 
-	public void setIsOrderToCashEnabled(byte isOrderToCashEnabled) {
+	public void setIsOrderToCashEnabled(Byte isOrderToCashEnabled) {
 		this.isOrderToCashEnabled = isOrderToCashEnabled;
 	}
 

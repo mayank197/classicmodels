@@ -50,21 +50,21 @@ public class Customer implements Serializable {
 	private Employee employee;
 
 	//bi-directional many-to-one association to Order
-	@OneToMany(mappedBy="customer", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy="customer", orphanRemoval = true)
 	private Set<Order> orders;
 
 	//bi-directional many-to-one association to Payment
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="customer", cascade = CascadeType.REMOVE)
 	private Set<Payment> payments;
 
 	public Customer() {
 	}
 
-	public int getCustomerNumber() {
+	public Integer getCustomerNumber() {
 		return this.customerNumber;
 	}
 
-	public void setCustomerNumber(int customerNumber) {
+	public void setCustomerNumber(Integer customerNumber) {
 		this.customerNumber = customerNumber;
 	}
 

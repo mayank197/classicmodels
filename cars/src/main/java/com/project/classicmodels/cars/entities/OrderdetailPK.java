@@ -13,17 +13,17 @@ public class OrderdetailPK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(insertable=false, updatable=false)
-	private int orderNumber;
+	private Integer orderNumber;
 
 	@Column(insertable=false, updatable=false)
 	private String productCode;
 
 	public OrderdetailPK() {
 	}
-	public int getOrderNumber() {
+	public Integer getOrderNumber() {
 		return this.orderNumber;
 	}
-	public void setOrderNumber(int orderNumber) {
+	public void setOrderNumber(Integer orderNumber) {
 		this.orderNumber = orderNumber;
 	}
 	public String getProductCode() {
@@ -46,9 +46,10 @@ public class OrderdetailPK implements Serializable {
 			&& this.productCode.equals(castOther.productCode);
 	}
 
+	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int hash = 17;
+		final Integer prime = 31;
+		Integer hash = 17;
 		hash = hash * prime + this.orderNumber;
 		hash = hash * prime + this.productCode.hashCode();
 		

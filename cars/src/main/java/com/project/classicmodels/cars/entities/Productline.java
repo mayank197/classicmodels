@@ -23,7 +23,7 @@ public class Productline implements Serializable {
 	private String htmlDescription;
 
 	@Lob
-	private byte[] image;
+	private Byte[] image;
 
 	private String textDescription;
 
@@ -50,11 +50,11 @@ public class Productline implements Serializable {
 		this.htmlDescription = htmlDescription;
 	}
 
-	public byte[] getImage() {
+	public Byte[] getImage() {
 		return this.image;
 	}
 
-	public void setImage(byte[] image) {
+	public void setImage(Byte[] image) {
 		this.image = image;
 	}
 

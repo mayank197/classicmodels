@@ -22,7 +22,7 @@ public class Orderdetail implements Serializable {
 
 	private BigDecimal priceEach;
 
-	private int quantityOrdered;
+	private Integer quantityOrdered;
 
 	//bi-directional many-to-one association to Order
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -61,11 +61,11 @@ public class Orderdetail implements Serializable {
 		this.priceEach = priceEach;
 	}
 
-	public int getQuantityOrdered() {
+	public Integer getQuantityOrdered() {
 		return this.quantityOrdered;
 	}
 
-	public void setQuantityOrdered(int quantityOrdered) {
+	public void setQuantityOrdered(Integer quantityOrdered) {
 		this.quantityOrdered = quantityOrdered;
 	}
 
