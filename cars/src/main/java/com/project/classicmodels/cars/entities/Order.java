@@ -19,34 +19,22 @@ public class Order implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-
-	@Column(name="cof_oms_attachment_id")
-	private int cofOmsAttachmentId;
+	private Integer orderNumber;
 
 	@Lob
 	private String comments;
 
 	@Column(name="created_by")
-	private int createdBy;
+	private Integer createdBy;
 
 	@Column(name="created_time")
 	private Timestamp createdTime;
-
-	@Column(name="customer_id")
-	private int customerId;
 
 	@Column(name="effective_date")
 	private Timestamp effectiveDate;
 
 	@Column(name="end_date")
 	private Timestamp endDate;
-
-	@Column(name="engagement_to_opportunity_id")
-	private int engagementToOpportunityId;
-
-	@Column(name="is_demo")
-	private byte isDemo;
 
 	@Column(name="is_order_to_cash_enabled")
 	private byte isOrderToCashEnabled;
@@ -55,21 +43,10 @@ public class Order implements Serializable {
 	private String orderCode;
 
 	@Column(name="order_version")
-	private int orderVersion;
+	private Integer orderVersion;
 
 	@Temporal(TemporalType.DATE)
 	private Date orderDate;
-
-	private int orderNumber;
-
-	@Column(name="quote_created_by")
-	private int quoteCreatedBy;
-
-	@Column(name="quote_id")
-	private int quoteId;
-
-	@Column(name="quote_version")
-	private int quoteVersion;
 
 	@Temporal(TemporalType.DATE)
 	private Date requiredDate;
@@ -85,7 +62,7 @@ public class Order implements Serializable {
 	private String status;
 
 	@Column(name="term_in_months")
-	private int termInMonths;
+	private Integer termInMonths;
 
 	//bi-directional many-to-one association to Orderdetail
 	@OneToMany(mappedBy="order")
@@ -99,22 +76,6 @@ public class Order implements Serializable {
 	public Order() {
 	}
 
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getCofOmsAttachmentId() {
-		return this.cofOmsAttachmentId;
-	}
-
-	public void setCofOmsAttachmentId(int cofOmsAttachmentId) {
-		this.cofOmsAttachmentId = cofOmsAttachmentId;
-	}
-
 	public String getComments() {
 		return this.comments;
 	}
@@ -123,11 +84,11 @@ public class Order implements Serializable {
 		this.comments = comments;
 	}
 
-	public int getCreatedBy() {
+	public Integer getCreatedBy() {
 		return this.createdBy;
 	}
 
-	public void setCreatedBy(int createdBy) {
+	public void setCreatedBy(Integer createdBy) {
 		this.createdBy = createdBy;
 	}
 
@@ -137,14 +98,6 @@ public class Order implements Serializable {
 
 	public void setCreatedTime(Timestamp createdTime) {
 		this.createdTime = createdTime;
-	}
-
-	public int getCustomerId() {
-		return this.customerId;
-	}
-
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
 	}
 
 	public Timestamp getEffectiveDate() {
@@ -163,22 +116,6 @@ public class Order implements Serializable {
 		this.endDate = endDate;
 	}
 
-	public int getEngagementToOpportunityId() {
-		return this.engagementToOpportunityId;
-	}
-
-	public void setEngagementToOpportunityId(int engagementToOpportunityId) {
-		this.engagementToOpportunityId = engagementToOpportunityId;
-	}
-
-	public byte getIsDemo() {
-		return this.isDemo;
-	}
-
-	public void setIsDemo(byte isDemo) {
-		this.isDemo = isDemo;
-	}
-
 	public byte getIsOrderToCashEnabled() {
 		return this.isOrderToCashEnabled;
 	}
@@ -195,14 +132,6 @@ public class Order implements Serializable {
 		this.orderCode = orderCode;
 	}
 
-	public int getOrderVersion() {
-		return this.orderVersion;
-	}
-
-	public void setOrderVersion(int orderVersion) {
-		this.orderVersion = orderVersion;
-	}
-
 	public Date getOrderDate() {
 		return this.orderDate;
 	}
@@ -211,36 +140,12 @@ public class Order implements Serializable {
 		this.orderDate = orderDate;
 	}
 
-	public int getOrderNumber() {
+	public Integer getOrderNumber() {
 		return this.orderNumber;
 	}
 
-	public void setOrderNumber(int orderNumber) {
+	public void setOrderNumber(Integer orderNumber) {
 		this.orderNumber = orderNumber;
-	}
-
-	public int getQuoteCreatedBy() {
-		return this.quoteCreatedBy;
-	}
-
-	public void setQuoteCreatedBy(int quoteCreatedBy) {
-		this.quoteCreatedBy = quoteCreatedBy;
-	}
-
-	public int getQuoteId() {
-		return this.quoteId;
-	}
-
-	public void setQuoteId(int quoteId) {
-		this.quoteId = quoteId;
-	}
-
-	public int getQuoteVersion() {
-		return this.quoteVersion;
-	}
-
-	public void setQuoteVersion(int quoteVersion) {
-		this.quoteVersion = quoteVersion;
 	}
 
 	public Date getRequiredDate() {
@@ -283,11 +188,11 @@ public class Order implements Serializable {
 		this.status = status;
 	}
 
-	public int getTermInMonths() {
+	public Integer getTermInMonths() {
 		return this.termInMonths;
 	}
 
-	public void setTermInMonths(int termInMonths) {
+	public void setTermInMonths(Integer termInMonths) {
 		this.termInMonths = termInMonths;
 	}
 
@@ -321,4 +226,11 @@ public class Order implements Serializable {
 		this.customer = customer;
 	}
 
+	public Integer getOrderVersion() {
+		return orderVersion;
+	}
+
+	public void setOrderVersion(Integer orderVersion) {
+		this.orderVersion = orderVersion;
+	}
 }

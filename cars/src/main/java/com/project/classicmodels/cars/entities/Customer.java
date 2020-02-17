@@ -1,5 +1,7 @@
 package com.project.classicmodels.cars.entities;
 
+import com.project.classicmodels.dtos.CustomerDto;
+
 import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -48,7 +50,7 @@ public class Customer implements Serializable {
 	private Employee employee;
 
 	//bi-directional many-to-one association to Order
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="customer", cascade = CascadeType.REMOVE)
 	private Set<Order> orders;
 
 	//bi-directional many-to-one association to Payment
