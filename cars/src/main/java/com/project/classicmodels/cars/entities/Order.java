@@ -65,7 +65,7 @@ public class Order implements Serializable {
 	private Integer termInMonths;
 
 	//bi-directional many-to-one association to Orderdetail
-	@OneToMany(mappedBy="order", orphanRemoval = true)
+	@OneToMany(mappedBy="order", cascade = CascadeType.ALL)
 	private Set<Orderdetail> orderdetails;
 
 	//bi-directional many-to-one association to Customer

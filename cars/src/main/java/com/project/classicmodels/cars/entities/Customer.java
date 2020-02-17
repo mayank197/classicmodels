@@ -50,11 +50,11 @@ public class Customer implements Serializable {
 	private Employee employee;
 
 	//bi-directional many-to-one association to Order
-	@OneToMany(mappedBy="customer", orphanRemoval = true)
+	@OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
 	private Set<Order> orders;
 
 	//bi-directional many-to-one association to Payment
-	@OneToMany(mappedBy="customer", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy="customer", cascade = CascadeType.ALL)
 	private Set<Payment> payments;
 
 	public Customer() {
