@@ -19,24 +19,32 @@ public class CustomerService {
     CustomerRepository customerRepository;
 
     public List<String> getAllCustomers() {
-        List<Customer> customers = customerRepository.findAll();
-        return customers.stream().map(cust -> cust.getCustomerName()).collect(Collectors.toList());
+        return customerRepository
+                .findAll()
+                .stream()
+                .map(cust -> cust.getCustomerName())
+                .collect(Collectors.toList());
     }
 
     public List<String> getCustomersByCity(String city) {
-        return customerRepository.findByCity(city)
-                .stream().map(cust -> cust.getCustomerName())
+        return customerRepository
+                .findByCity(city)
+                .stream()
+                .map(cust -> cust.getCustomerName())
                 .collect(Collectors.toList());
     }
 
     public List<String> getCustomersByState(String state){
-        return customerRepository.findByState(state)
-                .stream().map(cust -> cust.getCustomerName())
+        return customerRepository
+                .findByState(state)
+                .stream()
+                .map(cust -> cust.getCustomerName())
                 .collect(Collectors.toList());
     }
 
     public List<String> getCustomersByAddress(String address){
-        return customerRepository.findByAddressLine1(address)
+        return customerRepository
+                .findByAddressLine1(address)
                 .stream().map(cust -> cust.getCustomerName())
                 .collect(Collectors.toList());
     }
@@ -48,9 +56,11 @@ public class CustomerService {
                 .collect(Collectors.toList());
     }
 
-
     public List<String> deleteCustomerByCustomerNumber(Integer customerId) {
         customerRepository.deleteByCustomerNumber(customerId);
         return getAllCustomers();
     }
+
+
+
 }
