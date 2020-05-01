@@ -12,10 +12,10 @@ public class OrderdetailPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(insertable=false, updatable=false)
+	@Column(name="order_number",insertable=false, updatable=false)
 	private Integer orderNumber;
 
-	@Column(insertable=false, updatable=false)
+	@Column(name="product_code",insertable=false, updatable=false)
 	private String productCode;
 
 	public OrderdetailPK() {

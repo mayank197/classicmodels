@@ -17,10 +17,13 @@ public class Office implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="office_code")
 	private String officeCode;
 
+	@Column(name="address_line1")
 	private String addressLine1;
 
+	@Column(name="address_line2")
 	private String addressLine2;
 
 	private String city;
@@ -29,6 +32,7 @@ public class Office implements Serializable {
 
 	private String phone;
 
+	@Column(name="postal_code")
 	private String postalCode;
 
 	private String state;

@@ -12,10 +12,11 @@ public class PaymentPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(insertable=false, updatable=false)
+	@Column(name="customer_number",insertable=false, updatable=false)
 	private Integer customerNumber;
 
-	private String checkNumber;
+	@Column(name="cheque_number")
+	private String chequeNumber;
 
 	public PaymentPK() {
 	}
@@ -26,10 +27,10 @@ public class PaymentPK implements Serializable {
 		this.customerNumber = customerNumber;
 	}
 	public String getCheckNumber() {
-		return this.checkNumber;
+		return this.chequeNumber;
 	}
 	public void setCheckNumber(String checkNumber) {
-		this.checkNumber = checkNumber;
+		this.chequeNumber = checkNumber;
 	}
 
 	public boolean equals(Object other) {
@@ -42,7 +43,7 @@ public class PaymentPK implements Serializable {
 		PaymentPK castOther = (PaymentPK)other;
 		return 
 			(this.customerNumber == castOther.customerNumber)
-			&& this.checkNumber.equals(castOther.checkNumber);
+			&& this.chequeNumber.equals(castOther.chequeNumber);
 	}
 
 	@Override
@@ -50,7 +51,7 @@ public class PaymentPK implements Serializable {
 		final Integer prime = 31;
 		Integer hash = 17;
 		hash = hash * prime + this.customerNumber;
-		hash = hash * prime + this.checkNumber.hashCode();
+		hash = hash * prime + this.chequeNumber.hashCode();
 		
 		return hash;
 	}

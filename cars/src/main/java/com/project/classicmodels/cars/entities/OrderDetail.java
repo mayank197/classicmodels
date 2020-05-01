@@ -11,17 +11,20 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name="orderdetails")
-@NamedQuery(name="Orderdetail.findAll", query="SELECT o FROM Orderdetail o")
-public class Orderdetail implements Serializable {
+@NamedQuery(name="OrderDetail.findAll", query="SELECT o FROM OrderDetail o")
+public class OrderDetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
 	private OrderdetailPK id;
 
-	private short orderLineNumber;
+	@Column(name="orderline_number")
+	private Integer orderLineNumber;
 
-	private BigDecimal priceEach;
+	@Column(name="price_each")
+	private Float priceEach;
 
+	@Column(name="quantity_ordered")
 	private Integer quantityOrdered;
 
 	//bi-directional many-to-one association to Order
@@ -34,7 +37,7 @@ public class Orderdetail implements Serializable {
 	@JoinColumn(name="productCode", insertable = false, updatable = false)
 	private Product product;
 
-	public Orderdetail() {
+	public OrderDetail() {
 	}
 
 	public OrderdetailPK getId() {
@@ -45,19 +48,19 @@ public class Orderdetail implements Serializable {
 		this.id = id;
 	}
 
-	public short getOrderLineNumber() {
-		return this.orderLineNumber;
+	public Integer getOrderLineNumber() {
+		return orderLineNumber;
 	}
 
-	public void setOrderLineNumber(short orderLineNumber) {
+	public void setOrderLineNumber(Integer orderLineNumber) {
 		this.orderLineNumber = orderLineNumber;
 	}
 
-	public BigDecimal getPriceEach() {
-		return this.priceEach;
+	public Float getPriceEach() {
+		return priceEach;
 	}
 
-	public void setPriceEach(BigDecimal priceEach) {
+	public void setPriceEach(Float priceEach) {
 		this.priceEach = priceEach;
 	}
 

@@ -11,27 +11,29 @@ import java.util.Set;
  */
 @Entity
 @Table(name="productlines")
-@NamedQuery(name="Productline.findAll", query="SELECT p FROM Productline p")
-public class Productline implements Serializable {
+@NamedQuery(name="ProductLine.findAll", query="SELECT p FROM ProductLine p")
+public class ProductLine implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="product_line")
 	private String productLine;
 
-	@Lob
+	@Column(name="html_description")
 	private String htmlDescription;
 
 	@Lob
 	private Byte[] image;
 
+	@Column(name="text_description")
 	private String textDescription;
 
 	//bi-directional many-to-one association to Product
-	@OneToMany(mappedBy="productline")
+	@OneToMany(mappedBy="productLine")
 	private Set<Product> products;
 
-	public Productline() {
+	public ProductLine() {
 	}
 
 	public String getProductLine() {

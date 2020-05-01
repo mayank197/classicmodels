@@ -56,14 +56,14 @@ public class Product implements Serializable {
 
 	private short quantityInStock;
 
-	//bi-directional many-to-one association to Orderdetail
+	//bi-directional many-to-one association to OrderDetail
 	@OneToMany(mappedBy="product")
-	private Set<Orderdetail> orderdetails;
+	private Set<OrderDetail> orderDetails;
 
-	//bi-directional many-to-one association to Productline
+	//bi-directional many-to-one association to ProductLine
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="productLine")
-	private Productline productline;
+	private ProductLine productLine;
 
 	public Product() {
 	}
@@ -204,34 +204,34 @@ public class Product implements Serializable {
 		this.quantityInStock = quantityInStock;
 	}
 
-	public Set<Orderdetail> getOrderdetails() {
-		return this.orderdetails;
+	public Set<OrderDetail> getOrderDetails() {
+		return this.orderDetails;
 	}
 
-	public void setOrderdetails(Set<Orderdetail> orderdetails) {
-		this.orderdetails = orderdetails;
+	public void setOrderDetails(Set<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
 	}
 
-	public Orderdetail addOrderdetail(Orderdetail orderdetail) {
-		getOrderdetails().add(orderdetail);
+	public OrderDetail addOrderdetail(OrderDetail orderdetail) {
+		getOrderDetails().add(orderdetail);
 		orderdetail.setProduct(this);
 
 		return orderdetail;
 	}
 
-	public Orderdetail removeOrderdetail(Orderdetail orderdetail) {
-		getOrderdetails().remove(orderdetail);
+	public OrderDetail removeOrderdetail(OrderDetail orderdetail) {
+		getOrderDetails().remove(orderdetail);
 		orderdetail.setProduct(null);
 
 		return orderdetail;
 	}
 
-	public Productline getProductline() {
-		return this.productline;
+	public ProductLine getProductline() {
+		return this.productLine;
 	}
 
-	public void setProductline(Productline productline) {
-		this.productline = productline;
+	public void setProductline(ProductLine productline) {
+		this.productLine = productline;
 	}
 
 }

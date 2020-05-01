@@ -22,11 +22,12 @@ public class Payment implements Serializable {
 	private BigDecimal amount;
 
 	@Temporal(TemporalType.DATE)
+	@Column(name="payment_date")
 	private Date paymentDate;
 
 	//bi-directional many-to-one association to Customer
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="customerNumber",insertable = false, updatable=false)
+	@JoinColumn(name="customer_number",insertable = false, updatable=false)
 	private Customer customer;
 
 	public Payment() {

@@ -17,16 +17,20 @@ public class Employee implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "employee_number")
 	private Integer employeeNumber;
 
 	private String email;
 
 	private String extension;
 
+	@Column(name="first_name")
 	private String firstName;
 
+	@Column(name="job_title")
 	private String jobTitle;
 
+	@Column(name="last_name")
 	private String lastName;
 
 	//bi-directional many-to-one association to Customer
@@ -35,7 +39,7 @@ public class Employee implements Serializable {
 
 	//bi-directional many-to-one association to Employee
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="reportsTo")
+	@JoinColumn(name="reports_to")
 	private Employee employee;
 
 	//bi-directional many-to-one association to Employee
@@ -44,7 +48,7 @@ public class Employee implements Serializable {
 
 	//bi-directional many-to-one association to Office
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="officeCode")
+	@JoinColumn(name="office_code")
 	private Office office;
 
 	public Employee() {

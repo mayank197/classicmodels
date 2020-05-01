@@ -21,7 +21,6 @@ public class Order implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer orderNumber;
 
-	@Lob
 	private String comments;
 
 	@Column(name="created_by")
@@ -35,9 +34,6 @@ public class Order implements Serializable {
 
 	@Column(name="end_date")
 	private Timestamp endDate;
-
-	@Column(name="is_order_to_cash_enabled")
-	private Byte isOrderToCashEnabled;
 
 	@Column(name="order_code")
 	private String orderCode;
@@ -64,9 +60,9 @@ public class Order implements Serializable {
 	@Column(name="term_in_months")
 	private Integer termInMonths;
 
-	//bi-directional many-to-one association to Orderdetail
+	//bi-directional many-to-one association to OrderDetail
 	@OneToMany(mappedBy="order", cascade = CascadeType.ALL)
-	private Set<Orderdetail> orderdetails;
+	private Set<OrderDetail> orderDetails;
 
 	//bi-directional many-to-one association to Customer
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -114,14 +110,6 @@ public class Order implements Serializable {
 
 	public void setEndDate(Timestamp endDate) {
 		this.endDate = endDate;
-	}
-
-	public Byte getIsOrderToCashEnabled() {
-		return this.isOrderToCashEnabled;
-	}
-
-	public void setIsOrderToCashEnabled(Byte isOrderToCashEnabled) {
-		this.isOrderToCashEnabled = isOrderToCashEnabled;
 	}
 
 	public String getOrderCode() {
@@ -196,23 +184,23 @@ public class Order implements Serializable {
 		this.termInMonths = termInMonths;
 	}
 
-	public Set<Orderdetail> getOrderdetails() {
-		return this.orderdetails;
+	public Set<OrderDetail> getOrderDetails() {
+		return this.orderDetails;
 	}
 
-	public void setOrderdetails(Set<Orderdetail> orderdetails) {
-		this.orderdetails = orderdetails;
+	public void setOrderDetails(Set<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
 	}
 
-	public Orderdetail addOrderdetail(Orderdetail orderdetail) {
-		getOrderdetails().add(orderdetail);
+	public OrderDetail addOrderdetail(OrderDetail orderdetail) {
+		getOrderDetails().add(orderdetail);
 		orderdetail.setOrder(this);
 
 		return orderdetail;
 	}
 
-	public Orderdetail removeOrderdetail(Orderdetail orderdetail) {
-		getOrderdetails().remove(orderdetail);
+	public OrderDetail removeOrderdetail(OrderDetail orderdetail) {
+		getOrderDetails().remove(orderdetail);
 		orderdetail.setOrder(null);
 
 		return orderdetail;

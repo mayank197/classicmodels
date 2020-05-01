@@ -20,33 +20,41 @@ public class Customer implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="customer_number")
 	private Integer customerNumber;
 
+	@Column(name="address_line1")
 	private String addressLine1;
 
+	@Column(name="address_line2")
 	private String addressLine2;
 
 	private String city;
 
+	@Column(name="contact_first_name")
 	private String contactFirstName;
 
+	@Column(name="contact_last_name")
 	private String contactLastName;
 
 	private String country;
 
+	@Column(name="credit_limit")
 	private BigDecimal creditLimit;
 
+	@Column(name="customer_name")
 	private String customerName;
 
 	private String phone;
 
+	@Column(name="postal_code")
 	private String postalCode;
 
 	private String state;
 
 	//bi-directional many-to-one association to Employee
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="salesRepEmployeeNumber")
+	@JoinColumn(name="sales_rep_employee_number")
 	private Employee employee;
 
 	//bi-directional many-to-one association to Order
