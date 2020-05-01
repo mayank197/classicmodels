@@ -1,6 +1,5 @@
 package com.project.classicmodels.cars.controller;
 
-import com.project.classicmodels.cars.entities.Customer;
 import com.project.classicmodels.cars.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
